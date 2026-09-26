@@ -1,0 +1,7 @@
+import { Save, Utensils } from 'lucide-react';
+import React, { useState } from 'react';
+export default function MenuPage(){
+ const [menu,setMenu]=useState({date:'2026-09-26',breakfast:'Paratha, Egg & Tea',lunch:'Rice, Chicken Curry & Dal',dinner:'Chapati, Vegetable & Chicken'});
+ return <><div className="page-heading"><div><h2>Today's Menu</h2><p>Maintain the daily breakfast, lunch and dinner menu.</p></div><button className="primary-btn"><Save size={17}/> Save Menu</button></div><section className="panel form-panel"><h3>Daily Menu</h3><label className="field"><span>Date</span><input type="date" value={menu.date} onChange={e=>setMenu({...menu,date:e.target.value})}/></label><div className="form-grid menu-form"><Field label="Breakfast" value={menu.breakfast} onChange={v=>setMenu({...menu,breakfast:v})}/><Field label="Lunch" value={menu.lunch} onChange={v=>setMenu({...menu,lunch:v})}/><Field label="Dinner" value={menu.dinner} onChange={v=>setMenu({...menu,dinner:v})}/></div></section><div className="menu-large"><Meal title="Breakfast" value={menu.breakfast}/><Meal title="Lunch" value={menu.lunch}/><Meal title="Dinner" value={menu.dinner}/></div></>}
+function Field({label,value,onChange}){return <label className="field"><span>{label}</span><input value={value} onChange={e=>onChange(e.target.value)}/></label>}
+function Meal({title,value}){return <div className="panel meal"><div className="icon-box orange"><Utensils size={20}/></div><div><span>{title}</span><strong>{value}</strong></div></div>}

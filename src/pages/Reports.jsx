@@ -1,0 +1,4 @@
+import React from 'react';
+import { FileText, Download } from 'lucide-react';
+export default function Reports(){return <><div className="page-heading"><div><h2>Reports</h2><p>Daily and historical camp operational reports.</p></div><button className="primary-btn"><Download size={17}/> Export Report</button></div><div className="grid-3"><Report title="Daily Occupancy" text="Occupancy, arrivals, departures and technician movement."/><Report title="Incident Report" text="Open, closed and historical incidents by date."/><Report title="Facility Report" text="Rooms, washrooms, toilets and maintenance status."/></div></>}
+function Report({title,text}){return <section className="panel report-card"><div className="icon-box blue"><FileText size={21}/></div><h3>{title}</h3><p>{text}</p><button className="secondary-btn">Open Report</button></section>}
